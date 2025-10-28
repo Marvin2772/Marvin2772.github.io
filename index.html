@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Bienvenida</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
-    <h1>¡Bienvenido a mi página!</h1>
-    <p>Gracias por visitar mi sitio web.</p>
+    <div class="container">
+        <h1 id="bienvenida">¡Bienvenido a mi página!</h1>
+        <button onclick="mostrarMensaje()">Haz clic aquí para saludar</button>
+    </div>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
