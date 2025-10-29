@@ -1,28 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Inicio | Memes y Humor</title>
-  <link rel="stylesheet" href="css/estilos.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mayani Fusion Food — Restaurante</title>
+  <meta name="description" content="Mayani Fusion Food: sabores tradicionales con un toque moderno. Menú, reservaciones, eventos y pedidos en línea.">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Hoja de estilos principal (crear css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Scripts (separar en js/main.js) -->
+  <script defer src="js/main.js"></script>
+
+  <!-- Datos estructurados (JSON-LD) para motores de búsqueda -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mayani Fusion Food",
+    "image": ["/images/hero.jpg"],
+    "servesCuisine": "Fusion",
+    "url": "https://tusitio.example",
+    "telephone": "+507-6000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Ejemplo 123",
+      "addressLocality": "Ciudad",
+      "addressRegion": "Provincia",
+      "postalCode": "00000",
+      "addressCountry": "PA"
+    }
+  }
+  </script>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Memes</a></li>
-      <li><a href="#">Enviar Meme</a></li>
-      <li><a href="#">Ranking</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </nav>
-  <section class="portada">
-    <h1>Bienvenido a la página de Memes y Humor</h1>
-    <p>¡Encuentra los memes más graciosos y comparte tus favoritos!</p>
-    <div class="galeria">
-      <img src="img/image.jpg" alt="Primer meme" class="meme" />
-      <!-- Más imágenes de memes aquí -->
+  <!-- Accesibilidad: enlace para saltar al contenido -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- CABECERA / NAV -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="/" aria-label="Inicio - Mayani Fusion Food">
+          <img src="/images/logo.svg" alt="Logo Mayani Fusion Food" width="180">
+        </a>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#reservations">Reservaciones</a></li>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" href="#reservations">Reservar</a>
+        <a class="btn btn-secondary" href="#order">Pedir en línea</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN HERO -->
+  <section id="hero" class="hero" role="region" aria-label="Portada">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Mayani Fusion Food</h1>
+        <p>Sabores tradicionales con inspiración contemporánea — descubre nuestra fusión.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#menu">Ver Menú</a>
+          <a class="btn" href="#reservations">Reservar Mesa</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="/images/hero.jpg" alt="Plato destacado de Mayani Fusion Food">
+      </div>
     </div>
   </section>
-  <script src="js/scripts.js"></script>
+
+  <main id="main">
+    <!-- SECCIÓN MENÚ -->
+    <section id="menu" class="menu-section" aria-label="Menú">
+      <div class="container">
+        <h2>Menú</h2>
+        <p class="intro">Selecciona una categoría para ver nuestros platos.</p>
+
+        <!-- Categorías (ej: Entradas, Platos fuertes, Postres, Bebidas) -->
+        <nav class="menu-filter" aria-label="Filtrar menú">
+          <button data-cat="all" class="active">Todos</button>
+          <button data-cat="entradas">Entradas</button>
+          <button data-cat="principales">Principales</button>
+          <button data-cat="postres">Postres</button>
+          <button data-cat="bebidas">Bebidas</button>
+        </nav>
+
+        <div class="menu-grid">
+          <!-- Ejemplo de tarjeta de plato -->
+          <article class="menu-item" data-cat="principales">
+            <img src="/images/plato-1.jpg" alt="Nombre del plato">
+            <div class="menu-item-body">
+              <h3>Nombre del Plato</h3>
+              <p class="desc">Breve descripción del plato — ingredientes destacados.</p>
+              <div class="meta">
+                <span class="price">$12.00</span>
+                <button class="add-to-order">Pedir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Repetir tarjetas según sea necesario -->
+        </div>
+
+        <!-- Enlace a carta descargable -->
+        <p class="download"><a href="/menu.pdf" target="_blank" rel="noopener">Descargar menú (PDF)</a></p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="about" class="about" aria-label="Nosotros">
+      <div class="container">
+        <h2>Sobre Mayani Fusion Food</h2>
+        <p>Historia breve, filosofía gastronómica y lo que nos diferencia. (Ej: productos locales, técnicas, sostenibilidad)</p>
+
+        <div class="features">
+          <div class="feature">
+            <h4>Ingredientes locales</h4>
+            <p>Trabajamos con proveedores locales para asegurar frescura y calidad.</p>
+          </div>
+          <div class="feature">
+            <h4>Experiencia única</h4>
+            <p>Combinamos recetas tradicionales con técnicas modernas.</p>
+          </div>
+          <div class="feature">
+            <h4>Eventos y catering</h4>
+            <p>Ofrecemos servicios para eventos privados y catering corporativo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN RESERVACIONES -->
+    <section id="reservations" class="reservations" aria-label="Reservaciones">
+      <div class="container">
+        <h2>Reservaciones</h2>
+        <p>Reserva tu mesa en línea o llámanos: <strong>+507-6000-0000</strong></p>
+
+        <!-- Formulario simple de reservación (puede conectarse a un backend) -->
+        <form id="reservation-form" action="/reservations" method="post">
+          <div class="form-row">
+            <label for="res-name">Nombre</label>
+            <input id="res-name" name="name" type="text" required>
+          </div>
+          <div class="form-row">
+            <label for="res-date">Fecha</label>
+            <input id="res-date" name="date" type="date" required>
+          </div>
+          <div class="form-row">
+            <label for="res-time">Hora</label>
+            <input id="res-time" name="time" type="time" required>
+          </div>
+          <div class="form-row">
+            <label for="res-guests">Personas</label>
+            <input id="res-guests" name="guests" type="number" min="1" max="20" value="2" required>
+          </div>
+          <div class="form-row">
+            <label for="res-notes">Notas (alergias / ocasión)</label>
+            <textarea id="res-notes" name="notes"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar reservación</button>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN PEDIDOS (orden en línea) -->
+    <section id="order" class="order" aria-label="Pedir en línea">
+      <div class="container">
+        <h2>Pedir en línea</h2>
+        <p>Integra aquí tu pasarela (Glovo, UberEats, Rappi) o sistema propio de pedidos.</p>
+        <p><a href="#menu" class="btn">Crear pedido</a></p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA -->
+    <section id="gallery" class="gallery" aria-label="Galería de platos y local">
+      <div class="container">
+        <h2>Galería</h2>
+        <div class="gallery-grid">
+          <figure><img src="/images/gallery-1.jpg" alt="Plato 1"><figcaption>Plato A</figcaption></figure>
+          <figure><img src="/images/gallery-2.jpg" alt="Plato 2"><figcaption>Plato B</figcaption></figure>
+          <figure><img src="/images/gallery-3.jpg" alt="Interior del restaurante"><figcaption>Ambiente</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN EVENTOS / CATERING -->
+    <section id="events" class="events" aria-label="Eventos">
+      <div class="container">
+        <h2>Eventos y Catering</h2>
+        <p>Información sobre menús para eventos, capacidad, y formulario de consulta.</p>
+        <a href="#contact" class="btn">Solicitar presupuesto</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonials" class="testimonials" aria-label="Testimonios">
+      <div class="container">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <blockquote>
+          <p>"Excelente sabor y atención. Recomendado 100%."</p>
+          <cite>- Cliente feliz</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="contact" aria-label="Contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p>Dirección: Av. Ejemplo 123 — Tel: +507-6000-0000 — Horario: Lun-Dom 12:00–22:00</p>
+
+        <div class="contact-grid">
+          <div class="contact-form">
+            <form id="contact-form" action="/contact" method="post">
+              <label for="c-name">Nombre</label>
+              <input id="c-name" name="name" required>
+
+              <label for="c-email">Correo</label>
+              <input id="c-email" name="email" type="email" required>
+
+              <label for="c-message">Mensaje</label>
+              <textarea id="c-message" name="message" rows="4" required></textarea>
+
+              <button type="submit" class="btn">Enviar</button>
+            </form>
+          </div>
+
+          <div class="contact-map">
+            <!-- Incrusta Google Maps o mapa estático -->
+            <div class="map-placeholder">Mapa (incrustar iframe aquí)</div>
+          </div>
+        </div>
+
+        <div class="social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="/images/logo-footer.svg" alt="Mayani Fusion Food">
+      </div>
+      <nav class="footer-nav">
+        <a href="#menu">Menú</a>
+        <a href="#reservations">Reservaciones</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <p>&copy; <span id="year"></span> Mayani Fusion Food. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Pequeño script inline para año y mejoras de accesibilidad -->
+  <script>
+    // Mostrar año actual
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle nav (funcionalidad mínima, mover a js/main.js si lo prefieres)
+    const navToggle = document.getElementById('nav-toggle');
+    const navList = document.getElementById('nav-list');
+    navToggle?.addEventListener('click', () => {
+      const open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!open));
+      navList.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
