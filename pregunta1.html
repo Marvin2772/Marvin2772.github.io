@@ -20,21 +20,17 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
     <section class="pregunta">
-      <h2>1. ¿Qué significa HTML?</h2>
+      <!-- 🔹 Aquí el JS insertará el texto de la pregunta -->
+      <h2 id="question"></h2>
 
       <!-- TEMPORIZADOR -->
       <div class="temporizador">
         <h3>Temporizador</h3>
-        <!-- 🔹 ID necesario para que funcione con scripts.js -->
         <p>Tiempo restante: <span id="timer">15s</span></p>
       </div>
 
-      <!-- OPCIONES DE RESPUESTA -->
-      <div class="opciones">
-        <button onclick="checkAnswer(0)">HyperText Markup Language</button>
-        <button onclick="checkAnswer(1)">HighText Machine Language</button>
-        <button onclick="checkAnswer(2)">HyperTransfer Markup Language</button>
-      </div>
+      <!-- 🔹 Aquí el JS generará los botones -->
+      <div id="options" class="opciones"></div>
     </section>
   </main>
 
@@ -43,21 +39,17 @@
     <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
   </footer>
 
-  <!-- 🔹 Script principal (tu lógica completa del juego + temporizador) -->
+  <!-- 🔹 Script principal (usa tu banco de preguntas y temporizador) -->
   <script src="js/scripts.js"></script>
 
-  <!-- 🔹 Script local solo para validar respuesta en esta página -->
+  <!-- 🔹 Script local para iniciar la pregunta automáticamente -->
   <script>
-    function checkAnswer(selected) {
-      const correct = 0;
-      let score = parseInt(localStorage.getItem("score")) || 0;
-      if (selected === correct) score++;
-      localStorage.setItem("score", score);
-      window.location.href = "resultadoc.html";
-    }
-
-    // 🔹 Iniciar el temporizador al cargar la página
     window.addEventListener("DOMContentLoaded", () => {
+      // Mostrar la pregunta al cargar la página
+      if (typeof showQuestion === "function") {
+        showQuestion();
+      }
+      // Iniciar el temporizador automáticamente
       if (typeof startTimer === "function") {
         startTimer();
       }
