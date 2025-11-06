@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribique_Tech</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div>
+    <center>
+      <img src="img/imagen.png" alt="TRIBIQUE TECH" width="300">
+    </center>
+    
+    <h1>Bienvenido a la Trivia de Programación</h1>
+    <p>Responde preguntas básicas y demuestra tus conocimientos.</p>
+    <input type="text" id="username" placeholder="Ingresa tu nombre">
+    <button onclick="startGame()">Comenzar juego</button>
+  </div>
+
+  <br><br>
+  <hr>
+  
+  <footer>
+    <center>
+      <p>&copy; 2025 - Todos los derechos reservados</p>
+      <p>Tribique_Tech</p>
+    </center>
+  </footer>
+
+  <script>
+    function startGame() {
+      const name = document.getElementById("username").value.trim();
+      if (name === "") {
+        alert("Por favor, ingresa tu nombre");
+        return;
+      }
+      localStorage.setItem("username", name);
+      localStorage.setItem("score", 0);
+      window.location.href = "pregunta1.html";
+    }
+  </script>
+</body>
+</html>

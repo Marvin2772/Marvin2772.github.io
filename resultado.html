@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado Final - Trivia de Programación</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="result-container">
+    <div class="trophy-animation">
+      <div class="trophy">🏆</div>
+    </div>
+    
+    <h2 class="result-title">¡Resultado Final!</h2>
+    
+    <div class="score-display">
+      <p id="mensaje" class="score-message"></p>
+      <div class="score-circle">
+        <span id="score-value" class="score-number"></span>
+        <span class="score-total">/5</span>
+      </div>
+    </div>
+
+    <div class="feedback-message" id="feedback"></div>
+    
+    <button class="play-again-btn" onclick="reiniciar()">
+      <span class="btn-icon">🔄</span>
+      Jugar de Nuevo
+      
+    </button>
+
+    <div class="share-section">
+      <p>Comparte tu resultado:</p>
+      <div class="share-buttons">
+        <button class="share-btn" onclick="compartirResultado()">📤 Compartir</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
