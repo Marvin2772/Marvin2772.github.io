@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pregunta 1 - Tribique_Tech</title>
-  <meta name="description" content="Primera pregunta de la Trivia de Programación de Tribique_Tech">
+  <title>Pregunta - Tribique_Tech</title>
+  <meta name="description" content="Trivia de Programación de Tribique_Tech">
   <meta name="author" content="Tribique_Tech">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -13,25 +13,21 @@
 
   <!-- ENCABEZADO -->
   <header>
-    <h1>Trivia de Programación - Pregunta 1</h1>
+    <h1>TRIVIA DE PROGRAMACIÓN - PREGUNTA</h1>
     <p>Demuestra tus conocimientos. ¡Tienes tiempo limitado!</p>
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <section class="pregunta">
-      <!-- 🔹 Aquí el JS insertará el texto de la pregunta -->
-      <h2 id="question"></h2>
-
-      <!-- TEMPORIZADOR -->
-      <div class="temporizador">
-        <h3>Temporizador</h3>
-        <p>Tiempo restante: <span id="timer">15s</span></p>
-      </div>
-
-      <!-- 🔹 Aquí el JS generará los botones -->
-      <div id="options" class="opciones"></div>
+    <section id="pregunta-container" class="pregunta">
+      <!-- Aquí el JS insertará dinámicamente las preguntas -->
     </section>
+
+    <!-- TEMPORIZADOR -->
+    <div class="temporizador">
+      <h3>Temporizador</h3>
+      <p>Tiempo restante: <span id="tiempo">30s</span></p>
+    </div>
   </main>
 
   <!-- PIE DE PÁGINA -->
@@ -39,22 +35,8 @@
     <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
   </footer>
 
-  <!-- 🔹 Script principal (usa tu banco de preguntas y temporizador) -->
+  <!-- SCRIPT -->
   <script src="js/scripts.js"></script>
-
-  <!-- 🔹 Script local para iniciar la pregunta automáticamente -->
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      // Mostrar la pregunta al cargar la página
-      if (typeof showQuestion === "function") {
-        showQuestion();
-      }
-      // Iniciar el temporizador automáticamente
-      if (typeof startTimer === "function") {
-        startTimer();
-      }
-    });
-  </script>
 
 </body>
 </html>
