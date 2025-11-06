@@ -3,15 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pregunta 1</title>
+  <title>Pregunta 1 - Tribique_Tech</title>
+  <meta name="description" content="Primera pregunta de la Trivia de Programación de Tribique_Tech">
+  <meta name="author" content="Tribique_Tech">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <h2>1. ¿Qué significa HTML?</h2>
-  <button onclick="checkAnswer(0)">HyperText Markup Language</button>
-  <button onclick="checkAnswer(1)">HighText Machine Language</button>
-  <button onclick="checkAnswer(2)">HyperTransfer Markup Language</button>
 
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <h1>Trivia de Programación - Pregunta 1</h1>
+    <p>Demuestra tus conocimientos. ¡Tienes tiempo limitado!</p>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <section class="pregunta">
+      <h2>1. ¿Qué significa HTML?</h2>
+
+      <!-- TEMPORIZADOR -->
+      <div class="temporizador">
+        <h3>Temporizador</h3>
+        <p>Tiempo restante: <span id="tiempo">00:30</span></p>
+      </div>
+
+      <!-- OPCIONES DE RESPUESTA -->
+      <div class="opciones">
+        <button onclick="checkAnswer(0)">HyperText Markup Language</button>
+        <button onclick="checkAnswer(1)">HighText Machine Language</button>
+        <button onclick="checkAnswer(2)">HyperTransfer Markup Language</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
+  </footer>
+
+  <!-- SCRIPT EXISTENTE -->
   <script>
     function checkAnswer(selected) {
       const correct = 0;
@@ -21,5 +52,7 @@
       window.location.href = "resultado.html";
     }
   </script>
+
 </body>
 </html>
+
