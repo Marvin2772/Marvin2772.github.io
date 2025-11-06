@@ -29,8 +29,18 @@ const questions = [
       "HyperTransfer Markup Language"
     ],
     answer: 0
+  },
+  {
+    question: "¿Qué hace CSS?",
+    options: [
+      "Sirve para dar estilo a las páginas web",
+      "Crea bases de datos",
+      "Ejecuta código del servidor"
+    ],
+    answer: 0
   }
 ];
+
 
 // === EVENTOS ===
 startBtn.addEventListener('click', startGame);
