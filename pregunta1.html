@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trivia - Tribique_Tech</title>
+  <title>Trivia de Programación - Tribique_Tech</title>
+  <meta name="description" content="Trivia de Programación de Tribique_Tech">
+  <meta name="author" content="Tribique_Tech">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
+  <!-- ENCABEZADO -->
   <header>
     <h1>Trivia de Programación</h1>
     <p>Demuestra tus conocimientos. ¡Tienes tiempo limitado!</p>
   </header>
 
-  <main id="quiz-container">
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
     <section class="pregunta">
-      <h2 id="question">Cargando pregunta...</h2>
+      <!-- Aquí se insertarán las preguntas dinámicas -->
+      <h2 id="question"></h2>
 
+      <!-- TEMPORIZADOR -->
       <div class="temporizador">
         <h3>Temporizador</h3>
         <p>Tiempo restante: <span id="timer">15s</span></p>
       </div>
 
+      <!-- OPCIONES DE RESPUESTA -->
       <div id="options" class="opciones"></div>
+
+      <!-- BOTÓN SIGUIENTE -->
       <button id="nextBtn" class="hidden">Siguiente</button>
     </section>
   </main>
 
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
   </footer>
 
+  <!-- SCRIPT PRINCIPAL -->
   <script src="js/scripts.js"></script>
+
 </body>
 </html>
