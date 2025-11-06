@@ -25,7 +25,8 @@
       <!-- TEMPORIZADOR -->
       <div class="temporizador">
         <h3>Temporizador</h3>
-        <p>Tiempo restante: <span id="tiempo">00:30</span></p>
+        <!-- 🔹 ID necesario para que funcione con scripts.js -->
+        <p>Tiempo restante: <span id="timer">15s</span></p>
       </div>
 
       <!-- OPCIONES DE RESPUESTA -->
@@ -42,7 +43,10 @@
     <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
   </footer>
 
-  <!-- SCRIPT EXISTENTE -->
+  <!-- 🔹 Script principal (tu lógica completa del juego + temporizador) -->
+  <script src="js/scripts.js"></script>
+
+  <!-- 🔹 Script local solo para validar respuesta en esta página -->
   <script>
     function checkAnswer(selected) {
       const correct = 0;
@@ -51,8 +55,14 @@
       localStorage.setItem("score", score);
       window.location.href = "resultadoc.html";
     }
+
+    // 🔹 Iniciar el temporizador al cargar la página
+    window.addEventListener("DOMContentLoaded", () => {
+      if (typeof startTimer === "function") {
+        startTimer();
+      }
+    });
   </script>
 
 </body>
 </html>
-
