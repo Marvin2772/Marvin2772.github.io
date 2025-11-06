@@ -72,7 +72,6 @@ h1 {
   font-family: 'Arial Black', 'Arial', sans-serif;
 }
 
-
 h2 {
   color: #000000;
   margin-top: 0;
@@ -174,6 +173,28 @@ main:hover {
   40% { transform: translate(-1px, -1px); }
   60% { transform: translate(1px, 1px); }
   80% { transform: translate(1px, -1px); }
+}
+
+/* === BOTÓN SIGUIENTE (personalizado celeste) === */
+#nextBtn {
+  background: linear-gradient(90deg, #4FC3F7, #03A9F4); /* Tono celeste */
+  color: #000000;
+  border: 2px solid #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+#nextBtn:hover {
+  background: linear-gradient(90deg, #81D4FA, #29B6F6);
+  transform: translate(-3px, -3px) scale(1.05);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+#nextBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000 inset;
 }
 
 /* === RESPONSIVE === */
