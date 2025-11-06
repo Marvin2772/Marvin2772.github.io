@@ -1,4 +1,4 @@
-// === VARIABLES GLOBALES ===
+// === VARIABLES GLOBALES GENERALES ===
 const startBtn = document.getElementById('startBtn');
 const nextBtn = document.getElementById('nextBtn');
 const restartBtn = document.getElementById('restartBtn');
@@ -19,7 +19,7 @@ let userName = "";
 let timeLeft = 15;
 let timerInterval;
 
-// === BANCO DE PREGUNTAS ===
+// === BANCO DE PREGUNTAS (para modo de una sola página) ===
 const questions = [
   {
     question: "¿Qué significa HTML?",
@@ -48,12 +48,12 @@ const questions = [
   }
 ];
 
-// === EVENTOS ===
-startBtn.addEventListener('click', startGame);
-nextBtn.addEventListener('click', nextQuestion);
-restartBtn.addEventListener('click', restartGame);
+// === EVENTOS PRINCIPALES (solo si existen los botones en la página actual) ===
+if (startBtn) startBtn.addEventListener('click', startGame);
+if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
+if (restartBtn) restartBtn.addEventListener('click', restartGame);
 
-// === FUNCIONES PRINCIPALES ===
+// === FUNCIONES GENERALES (para modo de una sola página) ===
 function startGame() {
   userName = usernameInput.value.trim();
   if (userName === "") {
@@ -130,7 +130,7 @@ function restartGame() {
   clearInterval(timerInterval);
 }
 
-// === TEMPORIZADOR ===
+// === TEMPORIZADOR GENERAL (para el modo todo-en-una-página) ===
 function startTimer() {
   timeLeft = 15;
   timerEl.textContent = `Tiempo: ${timeLeft}s`;
@@ -161,7 +161,6 @@ function resetTimer() {
   startTimer();
 }
 
-// === SI EL TIEMPO SE ACABA ===
 function autoSelect() {
   const correct = questions[currentQuestion].answer;
   const buttons = optionsEl.querySelectorAll('button');
@@ -178,3 +177,45 @@ function autoSelect() {
   nextBtn.classList.remove('hidden');
 }
 
+/* =====================================================================
+   === SECCIÓN NUEVA: TEMPORIZADOR PARA PÁGINAS SEPARADAS (como pregunta1.html)
+   ===================================================================== */
+
+if (document.body.contains(document.getElementById("tiempo"))) {
+  // --- Detectamos si la página tiene el elemento #tiempo ---
+  let tiempoRestante = 30;
+  const tiempoElemento = document.getElementById("tiempo");
+  const botones = document.querySelectorAll(".opciones button");
+
+  // Inicia el contador
+  const temporizador = setInterval(() => {
+    tiempoRestante--;
+    tiempoElemento.textContent = `00:${tiempoRestante < 10 ? "0" + tiempoRestante : tiempoRestante}`;
+
+    // Colores visuales según el tiempo restante
+    if (tiempoRestante <= 10) tiempoElemento.style.color = "#EAB308"; // amarillo
+    if (tiempoRestante <= 5) tiempoElemento.style.color = "#DC2626"; // rojo
+
+    // Si se acaba el tiempo, se pasa automáticamente
+    if (tiempoRestante <= 0) {
+      clearInterval(temporizador);
+      alert("⏰ Se acabó el tiempo. Pasarás automáticamente.");
+      verificarRespuesta(-1); // respuesta incorrecta
+    }
+  }, 1000);
+
+  // Verificación de respuesta (función para pregunta individual)
+  function verificarRespuesta(indice) {
+    clearInterval(temporizador);
+    const correcta = 0; // ← aquí cambias el número según la pregunta (0, 1 o 2)
+    let puntaje = parseInt(localStorage.getItem("score")) || 0;
+    if (indice === correcta) puntaje++;
+    localStorage.setItem("score", puntaje);
+    window.location.href = "resultadoc.html"; // o pregunta2.html si es la siguiente
+  }
+
+  // Asignar eventos a los botones de respuesta
+  botones.forEach((boton, i) => {
+    boton.addEventListener("click", () => verificarRespuesta(i));
+  });
+}

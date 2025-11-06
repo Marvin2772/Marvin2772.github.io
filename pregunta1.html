@@ -22,14 +22,14 @@
     <section class="pregunta">
       <h2>1. ¿Qué significa HTML?</h2>
 
-      <!-- TEMPORIZADOR -->
+      <!-- === TEMPORIZADOR === -->
       <div class="temporizador">
         <h3>Temporizador</h3>
-        <p>Tiempo restante: <span id="tiempo">00:30</span></p>
+        <p>Tiempo restante: <span id="timer">15s</span></p>
       </div>
 
-      <!-- OPCIONES DE RESPUESTA -->
-      <div class="opciones">
+      <!-- === OPCIONES DE RESPUESTA === -->
+      <div id="options" class="opciones">
         <button onclick="checkAnswer(0)">HyperText Markup Language</button>
         <button onclick="checkAnswer(1)">HighText Machine Language</button>
         <button onclick="checkAnswer(2)">HyperTransfer Markup Language</button>
@@ -42,14 +42,25 @@
     <p>&copy; 2025 Tribique_Tech | Todos los derechos reservados</p>
   </footer>
 
-  <!-- SCRIPT EXISTENTE -->
+  <!-- === SCRIPT PRINCIPAL === -->
+  <!-- Tu archivo JavaScript global con el temporizador -->
+  <script src="scripts.js"></script>
+
+  <!-- === LÓGICA DE ESTA PREGUNTA === -->
   <script>
+    // Al cargar la página, iniciar temporizador (usa funciones del scripts.js)
+    document.addEventListener('DOMContentLoaded', () => {
+      startTimer();
+    });
+
+    // Función para verificar respuesta y pasar a la siguiente página
     function checkAnswer(selected) {
       const correct = 0;
       let score = parseInt(localStorage.getItem("score")) || 0;
       if (selected === correct) score++;
       localStorage.setItem("score", score);
-      window.location.href = "resultadoc.html";
+      clearInterval(timerInterval);
+      window.location.href = "resultadoc.html"; // Cambia a la siguiente pregunta si deseas
     }
   </script>
 
