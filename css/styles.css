@@ -1,12 +1,10 @@
 /* === ESTILO RETRO AVANZADO (CSS3) === */
 
-/* Fondo con gradiente animado */
+/* Fondo azul estático */
 body {
   font-family: 'Arial', 'Helvetica', sans-serif;
   text-align: center;
-  background: linear-gradient(135deg, #1E3A8A, #312E81, #1E40AF);
-  background-size: 400% 400%;
-  animation: bgMove 10s ease infinite;
+  background: #2754F5; /* Azul puro solicitado */
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -15,13 +13,6 @@ body {
   justify-content: center;
   align-items: center;
   color: #FFFFFF;
-}
-
-/* Animación del fondo */
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* Contenedor principal */
