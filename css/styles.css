@@ -60,16 +60,18 @@ main:hover {
 }
 
 /* === TÍTULOS Y SUBTÍTULOS === */
+/* === TÍTULOS Y SUBTÍTULOS === */
 h1 {
-  color: #1E3A8A;
+  color: #FFFFFF; /* Blanco solicitado */
   margin: 8px 0 4px 0;
   font-size: 1.8rem;
-  font-weight: 900;
+  font-weight: 700; /* Menos negrita */
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  text-shadow: 2px 2px 0px #000000, 0 0 10px #1E3A8A;
+  text-shadow: 2px 2px 0px #000000, 0 0 10px rgba(0,0,0,0.3);
   font-family: 'Arial Black', 'Arial', sans-serif;
 }
+
 
 h2 {
   color: #000000;
