@@ -1,25 +1,15 @@
 // === VARIABLES GLOBALES ===
-const startBtn = document.getElementById('startBtn');
-const nextBtn = document.getElementById('nextBtn');
-const restartBtn = document.getElementById('restartBtn');
-const usernameInput = document.getElementById('username');
-
-const startContainer = document.getElementById('start-container');
-const quizContainer = document.getElementById('quiz-container');
-const resultContainer = document.getElementById('result-container');
-
 const questionEl = document.getElementById('question');
 const optionsEl = document.getElementById('options');
-const scoreEl = document.getElementById('score');
+const nextBtn = document.getElementById('nextBtn');
 const timerEl = document.getElementById('timer');
 
 let currentQuestion = 0;
 let score = 0;
-let userName = "";
 let timeLeft = 15;
 let timerInterval;
 
-// === BANCO DE PREGUNTAS (solo 1) ===
+// === BANCO DE PREGUNTAS ===
 const questions = [
   {
     question: "¿Qué significa HTML?",
@@ -41,28 +31,7 @@ const questions = [
   }
 ];
 
-
-// === EVENTOS ===
-startBtn.addEventListener('click', startGame);
-nextBtn.addEventListener('click', nextQuestion);
-restartBtn.addEventListener('click', restartGame);
-
-// === FUNCIONES PRINCIPALES ===
-function startGame() {
-  userName = usernameInput.value.trim();
-  if (userName === "") {
-    alert("Por favor, ingresa tu nombre");
-    return;
-  }
-
-  startContainer.classList.add('hidden');
-  quizContainer.classList.remove('hidden');
-  currentQuestion = 0;
-  score = 0;
-  showQuestion();
-  startTimer();
-}
-
+// === MOSTRAR PREGUNTA ===
 function showQuestion() {
   const q = questions[currentQuestion];
   questionEl.textContent = q.question;
@@ -78,6 +47,7 @@ function showQuestion() {
   });
 }
 
+// === SELECCIONAR RESPUESTA ===
 function selectAnswer(index) {
   clearInterval(timerInterval);
   const correct = questions[currentQuestion].answer;
@@ -98,43 +68,33 @@ function selectAnswer(index) {
   nextBtn.classList.remove('hidden');
 }
 
+// === SIGUIENTE PREGUNTA ===
 function nextQuestion() {
   currentQuestion++;
-  // Como solo hay 1 pregunta, muestra directamente el resultado
   if (currentQuestion < questions.length) {
     showQuestion();
-    startTimer();
   } else {
     showResult();
   }
 }
 
+// === RESULTADO FINAL ===
 function showResult() {
-  quizContainer.classList.add('hidden');
-  resultContainer.classList.remove('hidden');
-  scoreEl.textContent = `${userName}, tu puntaje final es ${score} de ${questions.length}`;
   clearInterval(timerInterval);
-}
-
-function restartGame() {
-  currentQuestion = 0;
-  score = 0;
-  timeLeft = 15;
-  resultContainer.classList.add('hidden');
-  startContainer.classList.remove('hidden');
-  clearInterval(timerInterval);
+  questionEl.textContent = `🎉 Has terminado. Puntaje: ${score} de ${questions.length}`;
+  optionsEl.innerHTML = "";
+  nextBtn.classList.add('hidden');
 }
 
 // === TEMPORIZADOR ===
 function startTimer() {
   timeLeft = 15;
-  timerEl.textContent = `Tiempo: ${timeLeft}s`;
+  timerEl.textContent = `${timeLeft}s`;
 
   timerInterval = setInterval(() => {
     timeLeft--;
-    timerEl.textContent = `Tiempo: ${timeLeft}s`;
+    timerEl.textContent = `${timeLeft}s`;
 
-    // Cambio visual del tiempo
     if (timeLeft <= 5) {
       timerEl.style.color = "#EF4444"; // rojo
     } else if (timeLeft <= 10) {
@@ -156,7 +116,7 @@ function resetTimer() {
   startTimer();
 }
 
-// === SI EL TIEMPO SE ACABA ===
+// === AUTOSELECCIÓN AL ACABAR TIEMPO ===
 function autoSelect() {
   const correct = questions[currentQuestion].answer;
   const buttons = optionsEl.querySelectorAll('button');
@@ -172,3 +132,9 @@ function autoSelect() {
   });
   nextBtn.classList.remove('hidden');
 }
+
+// === INICIAR QUIZ AUTOMÁTICAMENTE ===
+window.addEventListener("DOMContentLoaded", () => {
+  showQuestion();
+  nextBtn.addEventListener("click", nextQuestion);
+});
