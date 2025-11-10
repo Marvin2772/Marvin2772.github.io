@@ -28,6 +28,15 @@ const questions = [
       "Ejecuta código del servidor"
     ],
     answer: 0
+  },
+  {
+    question: "¿Qué lenguaje se usa principalmente para la lógica en una página web?",
+    options: [
+      "JavaScript",
+      "Python",
+      "SQL"
+    ],
+    answer: 0
   }
 ];
 
@@ -74,16 +83,17 @@ function nextQuestion() {
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
-    showResult();
+    endQuiz();
   }
 }
 
-// === RESULTADO FINAL ===
-function showResult() {
+// === FINAL SIN RESULTADO ===
+function endQuiz() {
   clearInterval(timerInterval);
-  questionEl.textContent = `🎉 Has terminado. Puntaje: ${score} de ${questions.length}`;
+  questionEl.textContent = "✅ Has completado todas las preguntas.";
   optionsEl.innerHTML = "";
   nextBtn.classList.add('hidden');
+  timerEl.textContent = "";
 }
 
 // === TEMPORIZADOR ===
