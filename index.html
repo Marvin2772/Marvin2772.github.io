@@ -3,29 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tribique_Tech</title>
+  <title>Trivia Dev - Tribique_Tech</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div>
-    <center>
-      <img src="img/imagen.png" alt="TRIBIQUEE TECH" width="300">
-    </center>
+  <div class="main-container">
+    <!-- Elementos decorativos de código -->
+    <div class="code-decoration top-left">
+      <span>// trivia_dev.js</span>
+    </div>
+    <div class="code-decoration top-right">
+      <span>/* CSS3 & HTML5 */</span>
+    </div>
     
-    <h1>Bienvenido a la Trivia de Programación</h1>
-    <p>Responde preguntas básicas y demuestra tus conocimientos.</p>
-    <input type="text" id="username" placeholder="Ingresa tu nombre">
-    <button onclick="startGame()">Comenzar juego</button>
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <img src="img/imagen.png" alt="TRIBIQUE TECH" width="280">
+        <div class="tech-badge">DEV MODE</div>
+      </div>
+    </div>
+    
+    <div class="content-box code-theme">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="terminal-title">terminal.js</span>
+      </div>
+      
+      <h1 class="code-title">Trivia de Programación</h1>
+      <p class="subtitle">Desafía tus habilidades de desarrollo web</p>
+      
+      <div class="input-group">
+        <label for="username" class="input-label">Nombre del Developer:</label>
+        <div class="input-container">
+          <input type="text" id="username" placeholder="Ingresa tu nombre" class="code-input">
+          <div class="input-highlight"></div>
+        </div>
+      </div>
+      
+      <button class="start-btn code-btn" onclick="startGame()">
+        <span class="btn-text">Ejecutar Trivia</span>
+        <span class="btn-icon">&gt;_</span>
+      </button>
+    </div>
+    
+    <div class="tech-stack">
+      <div class="tech-item">
+        <span class="tech-name">HTML5</span>
+        <div class="tech-bar">
+          <div class="tech-progress html"></div>
+        </div>
+      </div>
+      <div class="tech-item">
+        <span class="tech-name">CSS3</span>
+        <div class="tech-bar">
+          <div class="tech-progress css"></div>
+        </div>
+      </div>
+      <div class="tech-item">
+        <span class="tech-name">JavaScript</span>
+        <div class="tech-bar">
+          <div class="tech-progress js"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <br><br>
-  <hr>
-  
-  <footer>
-    <center>
-      <p>&copy; 2025 - Todos los derechos reservados</p>
-      <p>Tribique_Tech</p>
-    </center>
+  <footer class="code-footer">
+    <div class="footer-content">
+      <div class="footer-line">
+        <span class="comment">// &copy; 2025 Tribique_Tech - Todos los derechos reservados</span>
+      </div>
+      <div class="footer-line">
+        <span class="variable">const</span> <span class="property">version</span> = <span class="string">"v2.0.1"</span>;
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -39,6 +94,12 @@
       localStorage.setItem("score", 0);
       window.location.href = "preguntas.html";
     }
+
+    // Efecto de escritura en el input
+    document.addEventListener('DOMContentLoaded', function() {
+      const usernameInput = document.getElementById('username');
+      usernameInput.focus();
+    });
   </script>
 </body>
 </html>
