@@ -4,7 +4,7 @@
 body {
   font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
   text-align: center;
-  background: #E0D5D5;
+  background: #D1CBCB;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -334,6 +334,209 @@ h1 {
   transform: scale(1.2); /* Reducido de 1.3 */
 }
 
+/* === BOTONES DE OPCIONES MEJORADOS === */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.opcion-btn {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 16px 20px;
+  border: 2px solid #1E40AF;
+  background: linear-gradient(135deg, #FFFFFF, #F0F8FF);
+  color: #2754F5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0px #1E40AF;
+  text-align: left;
+  width: 95%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.opcion-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(39, 84, 245, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.opcion-btn:hover::before {
+  left: 100%;
+}
+
+.opcion-btn:hover {
+  background: linear-gradient(135deg, #F0F8FF, #E0F2FE);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #1E40AF;
+  color: #1E40AF;
+}
+
+.opcion-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px #1E40AF inset;
+}
+
+/* Indicador de opción */
+.opcion-indicator {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #2754F5;
+  border-radius: 6px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: #2754F5;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px #1E40AF;
+  transition: all 0.3s ease;
+}
+
+.opcion-text {
+  flex: 1;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Estados de los botones */
+.opcion-btn.correcta {
+  background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
+  border-color: #059669;
+  box-shadow: 3px 3px 0px #059669;
+  color: #065F46;
+}
+
+.opcion-btn.correcta .opcion-indicator {
+  background: #059669;
+  border-color: #065F46;
+  color: #FFFFFF;
+}
+
+.opcion-btn.incorrecta {
+  background: linear-gradient(135deg, #FEE2E2, #FECACA);
+  border-color: #DC2626;
+  box-shadow: 3px 3px 0px #DC2626;
+  color: #991B1B;
+}
+
+.opcion-btn.incorrecta .opcion-indicator {
+  background: #DC2626;
+  border-color: #991B1B;
+  color: #FFFFFF;
+}
+
+.opcion-btn.seleccionada {
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  border-color: #D97706;
+  box-shadow: 4px 4px 0px #D97706;
+  color: #92400E;
+  transform: translate(-1px, -1px);
+}
+
+.opcion-btn.seleccionada .opcion-indicator {
+  background: #D97706;
+  border-color: #92400E;
+  color: #FFFFFF;
+}
+
+/* Efecto de brillo al seleccionar */
+.opcion-btn.seleccionada::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+  z-index: -1;
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.1; }
+}
+
+/* === BOTÓN SIGUIENTE MEJORADO === */
+#nextBtn {
+  background: linear-gradient(135deg, #FF6B35, #FFA94D);
+  color: #000000;
+  border: 2px solid #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0px #000000;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+#nextBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+#nextBtn:hover::before {
+  left: 100%;
+}
+
+#nextBtn:hover {
+  background: linear-gradient(135deg, #FF8C42, #FFB347);
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+#nextBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000 inset;
+}
+
+/* === TEMPORIZADOR MEJORADO === */
+.temporizador {
+  background: #FFFFFF;
+  color: #2754F5;
+  border: 2px solid #000000;
+  padding: 10px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 3px 3px 0px #000000;
+  margin: 15px 0;
+  font-family: 'Courier New', monospace;
+}
+
 /* === STACK TECNOLÓGICO - MÁS COMPACTO === */
 .tech-stack {
   display: flex;
@@ -482,6 +685,18 @@ h1 {
     font-size: 0.9rem;
   }
 
+  .opcion-btn {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+
+  .opcion-indicator {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    margin-right: 12px;
+  }
+
   .tech-item {
     flex-direction: column;
     align-items: flex-start;
@@ -512,6 +727,11 @@ h1 {
   
   .code-input {
     padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .opcion-btn {
+    padding: 12px 14px;
     font-size: 0.85rem;
   }
 }
