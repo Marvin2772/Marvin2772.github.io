@@ -3,30 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tribique_Tech - Trivia de Programación</title>
+  <title>Tribique_Tech</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="game-container">
-    <div class="header-content">
-      <img src="img/imagen.png" alt="TRIBIQUEE TECH" class="logo-image">
-      
-      <h1>Bienvenido a la Trivia de Programación</h1>
-      <p class="subtitle">Responde preguntas básicas y demuestra tus conocimientos.</p>
-    </div>
+  <div>
+    <center>
+      <img src="img/imagen.png" alt="TRIBIQUEE TECH" width="300">
+    </center>
+    
+    <h1>Bienvenido a la Trivia de Programación</h1>
+    <p>Responde preguntas básicas y demuestra tus conocimientos.</p>
+    <input type="text" id="username" placeholder="Ingresa tu nombre">
+    <button onclick="startGame()">Comenzar juego</button>
+  </div>
 
-    <div class="input-area">
-      <input type="text" id="username" placeholder="Ingresa tu nombre" class="text-input">
-      <button onclick="startGame()" class="start-button">Comenzar juego</button>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <p>&copy; 2025 - Todos los derechos reservados</p>
-    <p>Tribique_Tech</p>
+  <br><br>
+  <hr>
+  
+  <footer>
+    <center>
+      <p>&copy; 2025 - Todos los derechos reservados</p>
+      <p>Tribique_Tech</p>
+    </center>
   </footer>
 
   <script>
@@ -38,8 +37,7 @@
       }
       localStorage.setItem("username", name);
       localStorage.setItem("score", 0);
-      // Asumiendo que 'preguntas.html' existe para la siguiente fase del juego
-      window.location.href = "preguntas.html"; 
+      window.location.href = "preguntas.html";
     }
   </script>
 </body>

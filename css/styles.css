@@ -1,24 +1,10 @@
-/* === ESTILOS GLOBALES Y FUENTES === */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
-
-:root {
-  --color-primary: #00FF00; /* Verde Neón */
-  --color-secondary: #FF00FF; /* Magenta Neón */
-  --color-background: #1A1A2E; /* Azul Oscuro Profundo */
-  --color-text: #E0E0E0; /* Gris Claro */
-  --color-accent: #00FFFF; /* Cian Neón */
-  --shadow-neon: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary);
-  --shadow-box: 8px 8px 0px #000000, 0 0 20px rgba(0, 0, 0, 0.5);
-}
+/* === ESTILO RETRO AVANZADO (CSS3) === */
 
 /* === ESTRUCTURA GENERAL === */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arial', 'Helvetica', sans-serif;
   text-align: center;
-  background-color: var(--color-background);
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%),
-    linear-gradient(to bottom, #0F0F1A, #1A1A2E);
+  background: #2754F5; /* Azul puro solicitado */
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -26,153 +12,213 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--color-text);
-  overflow-x: hidden;
+  color: #FFFFFF;
 }
 
-/* === CONTENEDOR PRINCIPAL (main) === */
-.game-container {
-  background: rgba(30, 30, 50, 0.9); /* Fondo semi-transparente */
-  padding: 30px;
-  border-radius: 15px;
-  border: 3px solid var(--color-primary);
-  box-shadow: var(--shadow-box), var(--shadow-neon);
-  max-width: 450px;
-  width: 90%;
-  margin: 20px auto;
+/* === CONTENEDOR PRINCIPAL === */
+main {
+  background: linear-gradient(180deg, #FFFFFF 80%, #E2E8F0);
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid #000000;
+  box-shadow: 8px 8px 0px #000000, 0 0 20px rgba(0, 0, 0, 0.25);
+  max-width: 420px;
+  width: 85%;
+  margin: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
 }
 
-.game-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 10px 10px 0px #000000, 0 0 30px rgba(0, 255, 0, 0.8);
+/* Brillo animado en hover */
+main::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+  transform: rotate(25deg);
+  transition: opacity 0.4s ease;
+  opacity: 0;
 }
 
-/* === IMAGEN Y TÍTULOS === */
-.logo-image {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 5px var(--color-accent));
+main:hover::after {
+  animation: shine 1s forwards;
 }
+
+@keyframes shine {
+  0% { top: -100%; left: -50%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 100%; left: 150%; opacity: 0; }
+}
+
+main:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0px #000000, 0 0 30px rgba(0,0,0,0.3);
+}
+
+/* === TÍTULOS Y SUBTÍTULOS === */
 
 h1 {
-  font-family: 'Press Start 2P', cursive;
-  color: var(--color-primary);
-  margin: 10px 0 5px 0;
-  font-size: 1.5rem;
+  color: #FFFFFF; /* Blanco solicitado */
+  margin: 8px 0 4px 0;
+  font-size: 1.8rem;
+  font-weight: 700; /* Menos negrita */
   text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary);
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 0px #000000, 0 0 10px rgba(0,0,0,0.3);
+  font-family: 'Arial Black', 'Arial', sans-serif;
 }
 
-.subtitle {
-  color: var(--color-accent);
+h2 {
+  color: #000000;
   margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  font-weight: 400;
-  text-shadow: 0 0 3px var(--color-accent);
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0px #FFFFFF, 0 0 6px #1E40AF;
 }
 
-/* === ÁREA DE ENTRADA === */
-.input-area {
+/* === SECCIÓN DE LA PREGUNTA 1 === */
+section.pregunta {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
-.text-input {
-  padding: 12px 15px;
-  border: 2px solid var(--color-primary);
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--color-text);
-  font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  text-align: center;
-}
-
-.text-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.text-input:focus {
-  outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 8px var(--color-secondary);
-}
-
-/* === BOTÓN DE INICIO === */
-.start-button {
-  display: block;
+/* Opciones (botones) centradas */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  padding: 15px 24px;
-  border: 3px solid var(--color-secondary);
-  background: linear-gradient(45deg, var(--color-secondary), #FF66FF);
-  color: #1A1A2E;
-  border-radius: 10px;
+}
+
+/* Botones de respuesta */
+button {
+  display: block;
+  margin: 8px auto;
+  padding: 10px 24px;
+  border: 2px solid #000000;
+  background: linear-gradient(90deg, #FF6B35, #FFA94D);
+  color: #000000;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   transition: all 0.3s ease;
-  box-shadow: 5px 5px 0px #000000;
+  box-shadow: 4px 4px 0px #000000;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Press Start 2P', cursive;
+  width: 85%;
+  max-width: 280px;
 }
 
-.start-button:hover {
-  background: linear-gradient(45deg, #FF66FF, var(--color-secondary));
-  transform: translate(-3px, -3px);
-  box-shadow: 8px 8px 0px #000000, 0 0 15px var(--color-secondary);
+button:hover {
+  background: linear-gradient(90deg, #FF8C42, #FFB347);
+  transform: translate(-3px, -3px) scale(1.05);
+  box-shadow: 6px 6px 0px #000000;
 }
 
-.start-button:active {
+button:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #000000 inset;
 }
 
-/* === PIE DE PÁGINA === */
-.site-footer {
-  margin-top: auto; /* Empuja el footer hacia abajo */
-  padding: 15px;
-  color: var(--color-text);
-  font-size: 0.8rem;
-  border-top: 1px solid rgba(0, 255, 0, 0.3);
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+/* === TEMPORIZADOR === */
+.temporizador {
+  background: #FFFFFF; /* Fondo blanco solicitado */
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 3px 3px 0px #000000;
+  margin-top: 8px;
+  margin-bottom: 14px;
 }
 
-.site-footer p {
+/* === PIE DE PÁGINA === */
+footer {
+  margin-top: 8px;
+  padding: 8px;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  border-top: 2px solid rgba(255,255,255,0.6);
+  font-family: 'Arial', sans-serif;
+  backdrop-filter: blur(5px);
+}
+
+footer p {
   margin: 3px 0;
-  color: var(--color-text);
-  text-shadow: 0 0 2px var(--color-primary);
+  color: #E0E7FF;
+  text-shadow: 1px 1px 0px #000000;
+  font-weight: 600;
+}
+
+/* === EFECTO GLITCH LEVE AL HOVER === */
+main:hover {
+  animation: glitch 0.4s ease;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+/* === BOTÓN SIGUIENTE (personalizado celeste) === */
+#nextBtn {
+  background: linear-gradient(90deg, #4FC3F7, #03A9F4); /* Tono celeste */
+  color: #000000;
+  border: 2px solid #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+#nextBtn:hover {
+  background: linear-gradient(90deg, #81D4FA, #29B6F6);
+  transform: translate(-3px, -3px) scale(1.05);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+#nextBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000 inset;
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
-  .game-container {
-    padding: 20px;
-    margin: 10px;
-    width: 95%;
+  main {
+    padding: 12px;
+    margin: 6px;
+    max-width: 95%;
   }
 
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
-  .subtitle {
-    font-size: 0.9rem;
+  h2 {
+    font-size: 1.1rem;
   }
 
-  .start-button {
-    font-size: 1rem;
-    padding: 12px 20px;
+  button {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
+
+  footer {
+    font-size: 0.75rem;
   }
 }
