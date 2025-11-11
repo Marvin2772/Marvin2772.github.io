@@ -7,25 +7,53 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div>
-    <center>
-      <img src="img/imagen.png" alt="TRIBIQUEE TECH" width="300">
-    </center>
+  <div class="main-container">
+    <!-- Elementos decorativos -->
+    <div class="decorative-corner corner-tl"></div>
+    <div class="decorative-corner corner-tr"></div>
+    <div class="decorative-corner corner-bl"></div>
+    <div class="decorative-corner corner-br"></div>
     
-    <h1>Bienvenido a la Trivia de Programación</h1>
-    <p>Responde preguntas básicas y demuestra tus conocimientos.</p>
-    <input type="text" id="username" placeholder="Ingresa tu nombre">
-    <button onclick="startGame()">Comenzar juego</button>
+    <div class="logo-container">
+      <img src="img/imagen.png" alt="TRIBIQUE TECH" width="300">
+    </div>
+    
+    <div class="content-box">
+      <h1>Bienvenido a la Trivia de Programación</h1>
+      <p class="subtitle">Responde preguntas básicas y demuestra tus conocimientos.</p>
+      
+      <div class="input-container">
+        <input type="text" id="username" placeholder="Ingresa tu nombre">
+        <div class="input-decoration"></div>
+      </div>
+      
+      <button class="start-btn" onclick="startGame()">
+        <span class="btn-text">Comenzar juego</span>
+        <span class="btn-icon">▶</span>
+      </button>
+    </div>
+    
+    <div class="stats-container">
+      <div class="stat">
+        <span class="stat-number">10</span>
+        <span class="stat-label">Preguntas</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Niveles</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">100</span>
+        <span class="stat-label">Puntos máx.</span>
+      </div>
+    </div>
   </div>
 
-  <br><br>
-  <hr>
-  
   <footer>
-    <center>
+    <div class="footer-content">
       <p>&copy; 2025 - Todos los derechos reservados</p>
-      <p>Tribique_Tech</p>
-    </center>
+      <p class="brand">Tribique_Tech</p>
+    </div>
   </footer>
 
   <script>
