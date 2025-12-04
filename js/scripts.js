@@ -8,6 +8,7 @@ let currentQuestion = 0;
 let score = 0;
 let timeLeft = 15;
 let timerInterval;
+let incorrectAnswers = 0;
 
 // === BANCO DE PREGUNTAS ===
 const questions = [
@@ -111,63 +112,57 @@ function endQuiz() {
     mensaje = "¡Sigue intentándolo! La práctica hace al maestro.";
   }
   
-  // Mostrar resultados usando elementos existentes
+  // Mostrar resultados
   questionEl.textContent = `🎉 ¡Quiz Completado!`;
-  questionEl.style.fontSize = "1.8rem";
-  questionEl.style.color = "#2754F5";
+  questionEl.classList.add('resultado-completado');
   
   // Crear contenedor de resultados
   const resultadosContainer = document.createElement('div');
   resultadosContainer.className = 'puntuacion-final';
-  resultadosContainer.style.margin = '20px 0';
-  resultadosContainer.style.padding = '20px';
-  resultadosContainer.style.background = 'linear-gradient(135deg, #F0F8FF, #E0F2FE)';
-  resultadosContainer.style.borderRadius = '8px';
-  resultadosContainer.style.border = '2px solid #2754F5';
   
-  // Crear elementos de puntuación
+  // Aplicar clase según puntuación
+  if (porcentaje >= 90) {
+    resultadosContainer.classList.add('puntuacion-excelente');
+  } else if (porcentaje >= 70) {
+    resultadosContainer.classList.add('puntuacion-buena');
+  } else {
+    resultadosContainer.classList.add('puntuacion-regular');
+  }
+  
+  // Crear elementos
   const puntuacionEl = document.createElement('h2');
   puntuacionEl.textContent = `${score}/${questions.length}`;
-  puntuacionEl.style.fontSize = '2.5rem';
-  puntuacionEl.style.color = '#2754F5';
-  puntuacionEl.style.margin = '0 0 10px 0';
   
   const mensajeEl = document.createElement('p');
+  mensajeEl.id = 'mensaje-resultado';
   mensajeEl.textContent = mensaje;
-  mensajeEl.style.color = '#475569';
-  mensajeEl.style.fontSize = '1.1rem';
-  mensajeEl.style.margin = '0 0 15px 0';
   
-  const porcentajeContainer = document.createElement('div');
-  porcentajeContainer.style.display = 'flex';
-  porcentajeContainer.style.justifyContent = 'center';
-  porcentajeContainer.style.gap = '20px';
-  porcentajeContainer.style.marginTop = '15px';
+  // Stats container
+  const statsContainer = document.createElement('div');
+  statsContainer.className = 'stats-container';
   
-  const porcentajeEl = document.createElement('div');
-  porcentajeEl.style.textAlign = 'center';
+  // Crear estadísticas
+  const porcentajeItem = document.createElement('div');
+  porcentajeItem.className = 'stat-item';
   
-  const porcentajeLabel = document.createElement('div');
-  porcentajeLabel.textContent = 'Porcentaje';
-  porcentajeLabel.style.fontSize = '0.9rem';
-  porcentajeLabel.style.color = '#64748B';
+  const porcentajeLabel = document.createElement('span');
+  porcentajeLabel.className = 'stat-label';
+  porcentajeLabel.textContent = 'Porcentaje:';
   
-  const porcentajeValue = document.createElement('div');
+  const porcentajeValue = document.createElement('span');
+  porcentajeValue.className = 'stat-value';
   porcentajeValue.textContent = `${porcentaje}%`;
-  porcentajeValue.style.fontSize = '1.2rem';
-  porcentajeValue.style.fontWeight = 'bold';
-  porcentajeValue.style.color = '#2754F5';
   
-  // Ensamblar elementos
-  porcentajeEl.appendChild(porcentajeLabel);
-  porcentajeEl.appendChild(porcentajeValue);
-  porcentajeContainer.appendChild(porcentajeEl);
+  porcentajeItem.appendChild(porcentajeLabel);
+  porcentajeItem.appendChild(porcentajeValue);
+  statsContainer.appendChild(porcentajeItem);
   
+  // Ensamblar todo
   resultadosContainer.appendChild(puntuacionEl);
   resultadosContainer.appendChild(mensajeEl);
-  resultadosContainer.appendChild(porcentajeContainer);
+  resultadosContainer.appendChild(statsContainer);
   
-  // Limpiar opciones y mostrar resultados
+  // Mostrar resultados
   optionsEl.innerHTML = '';
   optionsEl.appendChild(resultadosContainer);
   
@@ -179,7 +174,7 @@ function endQuiz() {
   };
   
   timerEl.textContent = "¡Completado!";
-  timerEl.style.color = "#2754F5";
+  timerEl.classList.add('resultado-completado-timer');
 }
 
 // === TEMPORIZADOR ===
@@ -192,11 +187,14 @@ function startTimer() {
     timerEl.textContent = `${timeLeft}s`;
 
     if (timeLeft <= 5) {
-      timerEl.style.color = "#EF4444";
+      timerEl.classList.add('tiempo-bajo');
+      timerEl.classList.remove('tiempo-medio', 'tiempo-alto');
     } else if (timeLeft <= 10) {
-      timerEl.style.color = "#F59E0B";
+      timerEl.classList.add('tiempo-medio');
+      timerEl.classList.remove('tiempo-bajo', 'tiempo-alto');
     } else {
-      timerEl.style.color = "#16A34A";
+      timerEl.classList.add('tiempo-alto');
+      timerEl.classList.remove('tiempo-bajo', 'tiempo-medio');
     }
 
     if (timeLeft <= 0) {
@@ -208,7 +206,8 @@ function startTimer() {
 
 function resetTimer() {
   clearInterval(timerInterval);
-  timerEl.style.color = "#16A34A";
+  timerEl.classList.remove('tiempo-bajo', 'tiempo-medio');
+  timerEl.classList.add('tiempo-alto');
   startTimer();
 }
 
