@@ -1,0 +1,160 @@
+/* === ESTILOS PARA RESULTADOS === */
+
+/* Contenedor de resultados */
+.resultados-container {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Puntuación final */
+.puntuacion-final {
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #F0F8FF, #E0F2FE);
+  border-radius: 8px;
+  border: 2px solid #2754F5;
+  box-shadow: 3px 3px 0px #1E40AF;
+}
+
+.puntuacion-final h2 {
+  font-size: 2.5rem;
+  color: #2754F5;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 0px #E2E8F0;
+}
+
+/* Mensaje de resultado */
+#mensaje-resultado {
+  color: #475569;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Estadísticas */
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 15px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #E2E8F0;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed #CBD5E1;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #64748B;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.stat-value {
+  color: #2754F5;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: #F0F8FF;
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid #2754F5;
+  box-shadow: 1px 1px 0px #1E40AF;
+}
+
+/* Estados de temporizador */
+.tiempo-bajo {
+  color: #EF4444 !important;
+}
+
+.tiempo-medio {
+  color: #F59E0B !important;
+}
+
+.tiempo-alto {
+  color: #16A34A !important;
+}
+
+.resultado-completado-timer {
+  color: #2754F5 !important;
+}
+
+/* Quiz completado */
+.resultado-completado {
+  font-size: 1.8rem !important;
+  color: #2754F5 !important;
+}
+
+/* Estados de puntuación */
+.puntuacion-excelente {
+  background: linear-gradient(135deg, #D1FAE5, #A7F3D0) !important;
+  border-color: #059669 !important;
+  box-shadow: 3px 3px 0px #059669 !important;
+}
+
+.puntuacion-excelente h2 {
+  color: #065F46 !important;
+}
+
+.puntuacion-buena {
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A) !important;
+  border-color: #D97706 !important;
+  box-shadow: 3px 3px 0px #D97706 !important;
+}
+
+.puntuacion-buena h2 {
+  color: #92400E !important;
+}
+
+.puntuacion-regular {
+  background: linear-gradient(135deg, #FEE2E2, #FECACA) !important;
+  border-color: #DC2626 !important;
+  box-shadow: 3px 3px 0px #DC2626 !important;
+}
+
+.puntuacion-regular h2 {
+  color: #991B1B !important;
+}
+
+/* Responsive para resultados */
+@media (max-width: 600px) {
+  .puntuacion-final h2 {
+    font-size: 2rem;
+  }
+  
+  .stats-container {
+    padding: 12px;
+  }
+  
+  .stat-item {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+  
+  .stat-label, .stat-value {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .puntuacion-final h2 {
+    font-size: 1.8rem;
+  }
+  
+  #mensaje-resultado {
+    font-size: 0.9rem;
+  }
+}

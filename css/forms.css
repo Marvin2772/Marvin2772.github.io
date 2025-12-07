@@ -1,0 +1,123 @@
+/* === GRUPO DE INPUT - MÁS COMPACTO === */
+.input-group {
+  margin: 20px 0; /* Reducido de 25px */
+}
+
+.input-label {
+  display: block;
+  color: #2754F5;
+  font-size: 0.8rem; /* Reducido de 0.9rem */
+  margin-bottom: 6px; /* Reducido de 8px */
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px; /* Reducido de 300px */
+}
+
+.code-input {
+  padding: 10px 12px; /* Reducido de 12px 15px */
+  border: 1px solid #2754F5; /* Reducido de 2px */
+  border-radius: 3px;
+  font-size: 0.9rem; /* Reducido de 1rem */
+  width: 100%;
+  background: #FFFFFF;
+  color: #1E40AF;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  box-shadow: 2px 2px 0px #2754F5;
+}
+
+.code-input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(39, 84, 245, 0.5); /* Reducido de 15px */
+  background: #F0F8FF;
+  transform: translate(-1px, -1px);
+}
+
+.code-input::placeholder {
+  color: #94A3B8;
+  font-size: 0.85rem;
+}
+
+.input-highlight {
+  position: absolute;
+  top: 3px; /* Reducido de 4px */
+  left: 3px;
+  right: -3px;
+  bottom: -3px;
+  background: #E0F2FE;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* === BOTÓN DE INICIO - MÁS COMPACTO === */
+.start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto 16px; /* Reducido de 30px 20px */
+  padding: 12px 24px; /* Reducido de 15px 30px */
+  border: 1px solid #1E40AF; /* Reducido de 2px */
+  background: linear-gradient(135deg, #2754F5, #4FC3F7);
+  color: #FFFFFF;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem; /* Reducido de 1.1rem */
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0px #1E40AF; /* Reducido de 4px */
+  text-transform: uppercase;
+  letter-spacing: 0.8px; /* Reducido de 1px */
+  width: 90%;
+  max-width: 280px; /* Reducido de 300px */
+  position: relative;
+  overflow: hidden;
+  gap: 8px; /* Reducido de 12px */
+  font-family: 'Courier New', monospace;
+}
+
+.code-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.code-btn:hover::before {
+  left: 100%;
+}
+
+.code-btn:hover {
+  background: linear-gradient(135deg, #4FC3F7, #81D4FA);
+  transform: translate(-1px, -1px); /* Reducido de 2px */
+  box-shadow: 4px 4px 0px #1E40AF; /* Reducido de 6px */
+  color: #FFFFFF;
+}
+
+.code-btn:active {
+  transform: translate(1px, 1px); /* Reducido de 2px */
+  box-shadow: 1px 1px 0px #1E40AF inset; /* Reducido de 2px */
+}
+
+.btn-icon {
+  font-size: 0.9rem; /* Reducido de 1rem */
+  transition: transform 0.3s ease;
+}
+
+.code-btn:hover .btn-icon {
+  transform: scale(1.2); /* Reducido de 1.3 */
+}
