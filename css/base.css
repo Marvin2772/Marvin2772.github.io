@@ -1,4 +1,4 @@
-/* === ESTILO RETRO PROGRAMACIÓN (CSS3) - VERSIÓN COMPACTA AZUL === */
+/* === ESTILO RETRO (CSS3)  */
 
 /* === ESTRUCTURA GENERAL === */
 body {
@@ -17,7 +17,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Fondo con líneas de código - más compacto */
+/* Fondo con líneas de código */
 body::before {
   content: "";
   position: absolute;
@@ -32,7 +32,7 @@ body::before {
   z-index: -1;
 }
 
-/* Efecto de scanlines más fino */
+/* Efecto de scanlines*/
 body::after {
   content: "";
   position: absolute;
@@ -50,7 +50,7 @@ body::after {
   pointer-events: none;
 }
 
-/* === CONTENEDOR PRINCIPAL - MÁS COMPACTO === */
+/* === CONTENEDOR PRINCIPAL  */
 .main-container {
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
   padding: 18px;
@@ -68,7 +68,7 @@ body::after {
   overflow: hidden;
 }
 
-/* Efecto de borde tipo terminal más compacto */
+/* Efecto de borde tipo terminal */
 .main-container::before {
   content: "";
   position: absolute;
@@ -81,7 +81,6 @@ body::after {
   pointer-events: none;
 }
 
-/* === DECORACIONES DE CÓDIGO - MÁS PEQUEÑAS === */
 .code-decoration {
   position: absolute;
   font-size: 0.6rem;
