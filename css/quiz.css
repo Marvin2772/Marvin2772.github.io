@@ -142,7 +142,7 @@
   50% { opacity: 0.1; }
 }
 
-/* === BOTÓN SIGUIENTE MEJORADO === */
+/* === BOTÓN SIGUIENTE  === */
 #nextBtn {
   background: linear-gradient(135deg, #FF6B35, #FFA94D);
   color: #000000;
@@ -186,7 +186,7 @@
   box-shadow: 2px 2px 0px #000000 inset;
 }
 
-/* === TEMPORIZADOR MEJORADO === */
+/* === TEMPORIZADOR  === */
 .temporizador {
   background: #FFFFFF;
   color: #2754F5;
